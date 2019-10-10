@@ -6,7 +6,7 @@ def handle_events():
     global x
     global dir, frame
     global Cha_Shape
-    
+
     events = get_events()
     for event in events:
         if event.type == SDL_QUIT:
