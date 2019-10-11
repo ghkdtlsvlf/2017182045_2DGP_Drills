@@ -1,20 +1,16 @@
 import turtle
 import random
-from pico2d import*
+from pico2d import *
 
 
-
-
-
-def draw_curve_10_points(p1, p2, p3, p4,p5,p6,p7,p8,p9,p10):
-    global x,y,frame,Char_Shape
-
+def draw_curve_10_points(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10):
+    global x, y, frame, Char_Shape
 
     # draw p1-p2
     for i in range(0, 50, 2):
         t = i / 100
-        x = (2*t**2-3*t+1)*p1[0]+(-4*t**2+4*t)*p2[0]+(2*t**2-t)*p3[0]
-        y = (2*t**2-3*t+1)*p1[1]+(-4*t**2+4*t)*p2[1]+(2*t**2-t)*p3[1]
+        x = (2 * t ** 2 - 3 * t + 1) * p1[0] + (-4 * t ** 2 + 4 * t) * p2[0] + (2 * t ** 2 - t) * p3[0]
+        y = (2 * t ** 2 - 3 * t + 1) * p1[1] + (-4 * t ** 2 + 4 * t) * p2[1] + (2 * t ** 2 - t) * p3[1]
 
         clear_canvas()
         Map.draw(KPU_WIDTH // 2, KPU_HEIGHT // 2)
@@ -31,8 +27,10 @@ def draw_curve_10_points(p1, p2, p3, p4,p5,p6,p7,p8,p9,p10):
     # draw p2-p3
     for i in range(0, 100, 2):
         t = i / 100
-        x = ((-t**3 + 2*t**2 - t)*p1[0] + (3*t**3 - 5*t**2 + 2)*p2[0] + (-3*t**3 + 4*t**2 + t)*p3[0] + (t**3 - t**2)*p4[0])/2
-        y = ((-t**3 + 2*t**2 - t)*p1[1] + (3*t**3 - 5*t**2 + 2)*p2[1] + (-3*t**3 + 4*t**2 + t)*p3[1] + (t**3 - t**2)*p4[1])/2
+        x = ((-t ** 3 + 2 * t ** 2 - t) * p1[0] + (3 * t ** 3 - 5 * t ** 2 + 2) * p2[0] + (
+                    -3 * t ** 3 + 4 * t ** 2 + t) * p3[0] + (t ** 3 - t ** 2) * p4[0]) / 2
+        y = ((-t ** 3 + 2 * t ** 2 - t) * p1[1] + (3 * t ** 3 - 5 * t ** 2 + 2) * p2[1] + (
+                    -3 * t ** 3 + 4 * t ** 2 + t) * p3[1] + (t ** 3 - t ** 2) * p4[1]) / 2
         clear_canvas()
         Map.draw(KPU_WIDTH // 2, KPU_HEIGHT // 2)
         frame = (frame + 1) % 8
@@ -48,8 +46,10 @@ def draw_curve_10_points(p1, p2, p3, p4,p5,p6,p7,p8,p9,p10):
     # draw p3-p4
     for i in range(0, 100, 2):
         t = i / 100
-        x = ((-t ** 3 + 2 * t ** 2 - t) * p2[0] + (3 * t ** 3 - 5 * t ** 2 + 2) * p3[0] + (-3 * t ** 3 + 4 * t ** 2 + t) * p4[0] + (t ** 3 - t ** 2) * p5[0]) / 2
-        y = ((-t ** 3 + 2 * t ** 2 - t) * p2[1] + (3 * t ** 3 - 5 * t ** 2 + 2) * p3[1] + (-3 * t ** 3 + 4 * t ** 2 + t) * p4[1] + (t ** 3 - t ** 2) * p5[1]) / 2
+        x = ((-t ** 3 + 2 * t ** 2 - t) * p2[0] + (3 * t ** 3 - 5 * t ** 2 + 2) * p3[0] + (
+                    -3 * t ** 3 + 4 * t ** 2 + t) * p4[0] + (t ** 3 - t ** 2) * p5[0]) / 2
+        y = ((-t ** 3 + 2 * t ** 2 - t) * p2[1] + (3 * t ** 3 - 5 * t ** 2 + 2) * p3[1] + (
+                    -3 * t ** 3 + 4 * t ** 2 + t) * p4[1] + (t ** 3 - t ** 2) * p5[1]) / 2
         clear_canvas()
         Map.draw(KPU_WIDTH // 2, KPU_HEIGHT // 2)
         frame = (frame + 1) % 8
@@ -65,8 +65,10 @@ def draw_curve_10_points(p1, p2, p3, p4,p5,p6,p7,p8,p9,p10):
     # draw p4-p5
     for i in range(0, 100, 2):
         t = i / 100
-        x = ((-t ** 3 + 2 * t ** 2 - t) * p3[0] + (3 * t ** 3 - 5 * t ** 2 + 2) * p4[0] + (-3 * t ** 3 + 4 * t ** 2 + t) * p5[0] + (t ** 3 - t ** 2) * p6[0]) / 2
-        y = ((-t ** 3 + 2 * t ** 2 - t) * p3[1] + (3 * t ** 3 - 5 * t ** 2 + 2) * p4[1] + (-3 * t ** 3 + 4 * t ** 2 + t) * p5[1] + (t ** 3 - t ** 2) * p6[1]) / 2
+        x = ((-t ** 3 + 2 * t ** 2 - t) * p3[0] + (3 * t ** 3 - 5 * t ** 2 + 2) * p4[0] + (
+                    -3 * t ** 3 + 4 * t ** 2 + t) * p5[0] + (t ** 3 - t ** 2) * p6[0]) / 2
+        y = ((-t ** 3 + 2 * t ** 2 - t) * p3[1] + (3 * t ** 3 - 5 * t ** 2 + 2) * p4[1] + (
+                    -3 * t ** 3 + 4 * t ** 2 + t) * p5[1] + (t ** 3 - t ** 2) * p6[1]) / 2
         clear_canvas()
         Map.draw(KPU_WIDTH // 2, KPU_HEIGHT // 2)
         frame = (frame + 1) % 8
@@ -82,8 +84,10 @@ def draw_curve_10_points(p1, p2, p3, p4,p5,p6,p7,p8,p9,p10):
     # draw p5-p6
     for i in range(0, 100, 2):
         t = i / 100
-        x = ((-t ** 3 + 2 * t ** 2 - t) * p4[0] + (3 * t ** 3 - 5 * t ** 2 + 2) * p5[0] + (-3 * t ** 3 + 4 * t ** 2 + t) * p6[0] + (t ** 3 - t ** 2) * p7[0]) / 2
-        y = ((-t ** 3 + 2 * t ** 2 - t) * p4[1] + (3 * t ** 3 - 5 * t ** 2 + 2) * p5[1] + (-3 * t ** 3 + 4 * t ** 2 + t) * p6[1] + (t ** 3 - t ** 2) * p7[1]) / 2
+        x = ((-t ** 3 + 2 * t ** 2 - t) * p4[0] + (3 * t ** 3 - 5 * t ** 2 + 2) * p5[0] + (
+                    -3 * t ** 3 + 4 * t ** 2 + t) * p6[0] + (t ** 3 - t ** 2) * p7[0]) / 2
+        y = ((-t ** 3 + 2 * t ** 2 - t) * p4[1] + (3 * t ** 3 - 5 * t ** 2 + 2) * p5[1] + (
+                    -3 * t ** 3 + 4 * t ** 2 + t) * p6[1] + (t ** 3 - t ** 2) * p7[1]) / 2
         clear_canvas()
         Map.draw(KPU_WIDTH // 2, KPU_HEIGHT // 2)
         frame = (frame + 1) % 8
@@ -99,8 +103,10 @@ def draw_curve_10_points(p1, p2, p3, p4,p5,p6,p7,p8,p9,p10):
     # draw p6-p7
     for i in range(0, 100, 2):
         t = i / 100
-        x = ((-t ** 3 + 2 * t ** 2 - t) * p5[0] + (3 * t ** 3 - 5 * t ** 2 + 2) * p6[0] + (-3 * t ** 3 + 4 * t ** 2 + t) * p7[0] + (t ** 3 - t ** 2) * p8[0]) / 2
-        y = ((-t ** 3 + 2 * t ** 2 - t) * p5[1] + (3 * t ** 3 - 5 * t ** 2 + 2) * p6[1] + (-3 * t ** 3 + 4 * t ** 2 + t) * p7[1] + (t ** 3 - t ** 2) * p8[1]) / 2
+        x = ((-t ** 3 + 2 * t ** 2 - t) * p5[0] + (3 * t ** 3 - 5 * t ** 2 + 2) * p6[0] + (
+                    -3 * t ** 3 + 4 * t ** 2 + t) * p7[0] + (t ** 3 - t ** 2) * p8[0]) / 2
+        y = ((-t ** 3 + 2 * t ** 2 - t) * p5[1] + (3 * t ** 3 - 5 * t ** 2 + 2) * p6[1] + (
+                    -3 * t ** 3 + 4 * t ** 2 + t) * p7[1] + (t ** 3 - t ** 2) * p8[1]) / 2
         clear_canvas()
         Map.draw(KPU_WIDTH // 2, KPU_HEIGHT // 2)
         frame = (frame + 1) % 8
@@ -115,8 +121,10 @@ def draw_curve_10_points(p1, p2, p3, p4,p5,p6,p7,p8,p9,p10):
     # draw p7-p8
     for i in range(0, 100, 2):
         t = i / 100
-        x = ((-t ** 3 + 2 * t ** 2 - t) * p6[0] + (3 * t ** 3 - 5 * t ** 2 + 2) * p7[0] + (-3 * t ** 3 + 4 * t ** 2 + t) * p8[0] + (t ** 3 - t ** 2) * p9[0]) / 2
-        y = ((-t ** 3 + 2 * t ** 2 - t) * p6[1] + (3 * t ** 3 - 5 * t ** 2 + 2) * p7[1] + (-3 * t ** 3 + 4 * t ** 2 + t) * p8[1] + (t ** 3 - t ** 2) * p9[1]) / 2
+        x = ((-t ** 3 + 2 * t ** 2 - t) * p6[0] + (3 * t ** 3 - 5 * t ** 2 + 2) * p7[0] + (
+                    -3 * t ** 3 + 4 * t ** 2 + t) * p8[0] + (t ** 3 - t ** 2) * p9[0]) / 2
+        y = ((-t ** 3 + 2 * t ** 2 - t) * p6[1] + (3 * t ** 3 - 5 * t ** 2 + 2) * p7[1] + (
+                    -3 * t ** 3 + 4 * t ** 2 + t) * p8[1] + (t ** 3 - t ** 2) * p9[1]) / 2
         clear_canvas()
         Map.draw(KPU_WIDTH // 2, KPU_HEIGHT // 2)
         frame = (frame + 1) % 8
@@ -132,8 +140,10 @@ def draw_curve_10_points(p1, p2, p3, p4,p5,p6,p7,p8,p9,p10):
     # draw p8-p9
     for i in range(0, 100, 2):
         t = i / 100
-        x = ((-t ** 3 + 2 * t ** 2 - t) * p7[0] + (3 * t ** 3 - 5 * t ** 2 + 2) * p8[0] + (-3 * t ** 3 + 4 * t ** 2 + t) * p9[0] + (t ** 3 - t ** 2) * p10[0]) / 2
-        y = ((-t ** 3 + 2 * t ** 2 - t) * p7[1] + (3 * t ** 3 - 5 * t ** 2 + 2) * p8[1] + (-3 * t ** 3 + 4 * t ** 2 + t) * p9[1] + (t ** 3 - t ** 2) * p10[1]) / 2
+        x = ((-t ** 3 + 2 * t ** 2 - t) * p7[0] + (3 * t ** 3 - 5 * t ** 2 + 2) * p8[0] + (
+                    -3 * t ** 3 + 4 * t ** 2 + t) * p9[0] + (t ** 3 - t ** 2) * p10[0]) / 2
+        y = ((-t ** 3 + 2 * t ** 2 - t) * p7[1] + (3 * t ** 3 - 5 * t ** 2 + 2) * p8[1] + (
+                    -3 * t ** 3 + 4 * t ** 2 + t) * p9[1] + (t ** 3 - t ** 2) * p10[1]) / 2
         clear_canvas()
         Map.draw(KPU_WIDTH // 2, KPU_HEIGHT // 2)
         frame = (frame + 1) % 8
@@ -148,8 +158,10 @@ def draw_curve_10_points(p1, p2, p3, p4,p5,p6,p7,p8,p9,p10):
     # draw p9-p10
     for i in range(0, 100, 2):
         t = i / 100
-        x = ((-t ** 3 + 2 * t ** 2 - t) * p8[0] + (3 * t ** 3 - 5 * t ** 2 + 2) * p9[0] + (-3 * t ** 3 + 4 * t ** 2 + t) * p10[0] + (t ** 3 - t ** 2) * p1[0]) / 2
-        y = ((-t ** 3 + 2 * t ** 2 - t) * p8[1] + (3 * t ** 3 - 5 * t ** 2 + 2) * p9[1] + (-3 * t ** 3 + 4 * t ** 2 + t) * p10[1] + (t ** 3 - t ** 2) * p1[1]) / 2
+        x = ((-t ** 3 + 2 * t ** 2 - t) * p8[0] + (3 * t ** 3 - 5 * t ** 2 + 2) * p9[0] + (
+                    -3 * t ** 3 + 4 * t ** 2 + t) * p10[0] + (t ** 3 - t ** 2) * p1[0]) / 2
+        y = ((-t ** 3 + 2 * t ** 2 - t) * p8[1] + (3 * t ** 3 - 5 * t ** 2 + 2) * p9[1] + (
+                    -3 * t ** 3 + 4 * t ** 2 + t) * p10[1] + (t ** 3 - t ** 2) * p1[1]) / 2
         clear_canvas()
         Map.draw(KPU_WIDTH // 2, KPU_HEIGHT // 2)
         frame = (frame + 1) % 8
@@ -162,11 +174,9 @@ def draw_curve_10_points(p1, p2, p3, p4,p5,p6,p7,p8,p9,p10):
         update_canvas()
         get_events()
 
-
-
     # draw p10-p1
     for i in range(50, 100, 2):
-        t = i/100
+        t = i / 100
         x = (2 * t ** 2 - 3 * t + 1) * p9[0] + (-4 * t ** 2 + 4 * t) * p10[0] + (2 * t ** 2 - t) * p1[0]
         y = (2 * t ** 2 - 3 * t + 1) * p9[1] + (-4 * t ** 2 + 4 * t) * p10[1] + (2 * t ** 2 - t) * p1[1]
         clear_canvas()
@@ -175,7 +185,7 @@ def draw_curve_10_points(p1, p2, p3, p4,p5,p6,p7,p8,p9,p10):
         if p10[0] < p1[0]:
             Char_Shape = 100
         else:
-            Char_Shape =0
+            Char_Shape = 0
         Charcter.clip_draw(frame * 100, Char_Shape, 100, 100, x, y)
         delay(0.05)
         update_canvas()
@@ -190,15 +200,13 @@ pico2d.open_canvas()
 Map = load_image('KPU_GROUND.png')
 Charcter = load_image('animation_sheet.png')
 
-x, y = 400,400
-Char_Shape =0
+x, y = 400, 400
+Char_Shape = 0
 frame = 0
-size =10
-points = [(random.randint(0,800),random.randint(0,600))for i in range(size)]
+size = 10
+points = [(random.randint(0, 800), random.randint(0, 600)) for i in range(size)]
+
 while True:
-    draw_curve_10_points(points[0],points[1],points[2],points[3],points[4],points[5],points[6],points[7],points[8],points[9])
-
-
-
-
+    draw_curve_10_points(points[0], points[1], points[2], points[3], points[4], points[5], points[6], points[7],
+                         points[8], points[9])
 
