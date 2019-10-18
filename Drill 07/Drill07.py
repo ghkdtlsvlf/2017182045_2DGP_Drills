@@ -3,32 +3,32 @@ import random
 
 
 # Game object class here
-#
-# class Small_Ball:
-#     def __init__(self):
-#         self.image = load_image('ball21x21.png')
-#         self.Small_bx, self.Small_by = random.randint(0, 700), random.randint(300, 700)
-#
-#     def update(self):
-#         if self.Small_by > 50:
-#             self.Small_by -= random.randint(3, 20)
-#
-#     def draw(self):
-#         self.image.draw(self.Small_bx, self.Small_by)
 
-#
-# class Big_Ball:
-#     def __init__(self):
-#         self.image = load_image('ball41x41.png')
-#         self.Big_bx, self.Big_by = random.randint(0, 700), random.randint(300, 700)
-#
-#     def update(self):
-#         if self.Big_by > 50:
-#             self.Big_by -= random.randint(3, 20)
-#
-#     def draw(self):
-#         self.image.draw(self.Big_bx, self.Big_by)
-#
+class Small_Ball:
+    def __init__(self):
+        self.image = load_image('ball21x21.png')
+        self.Small_bx, self.Small_by = random.randint(0, 700), random.randint(300, 599)
+
+    def update(self):
+        if self.Small_by > 60:
+            self.Small_by -= random.randint(3, 20)
+
+    def draw(self):
+        self.image.draw(self.Small_bx, self.Small_by)
+
+
+class Big_Ball:
+    def __init__(self):
+        self.image = load_image('ball41x41.png')
+        self.Big_bx, self.Big_by = random.randint(0, 700), random.randint(300, 599)
+
+    def update(self):
+        if self.Big_by > 70:
+            self.Big_by -= random.randint(2, 10)
+
+    def draw(self):
+        self.image.draw(self.Big_bx, self.Big_by)
+
 
 class Grass:
     def __init__(self):
@@ -66,16 +66,16 @@ def handle_events():
 
 open_canvas()
 
-#team = [Boy() for i in range(11)]
-#
-# Big_B_Count = random.randint(0,10)
-# Small_B_count = 20- Big_B_Count
-#
-# Big_B_Array = [Big_Ball() for i in range(Big_B_Count)]
-# Small_B_Array = [Small_Ball() for i in range(Small_B_count)]
+team = [Boy() for i in range(11)]
+
+Big_B_Count = random.randint(5, 10)
+Small_B_count = 20 - Big_B_Count
+
+Big_B_Array = [Big_Ball() for i in range(Big_B_Count)]
+Small_B_Array = [Small_Ball() for i in range(Small_B_count)]
 
 grass = Grass()
-boy = Boy()
+
 running = True
 
 # game main loop code
@@ -83,26 +83,26 @@ running = True
 while running:
     handle_events()
 
-  #  for boy in team:
-    boy.update()
-    #
-    # for BigBall in Big_B_Array:
-    #     BigBall.update()
-    #
-    # for SmallBall in Small_B_Array:
-    #     SmallBall.update()
+    for boy in team:
+        boy.update()
+
+    for BigBall in Big_B_Array:
+        BigBall.update()
+
+    for SmallBall in Small_B_Array:
+        SmallBall.update()
 
     clear_canvas()
 
     grass.draw()
-   # for boy in team:
-    boy.draw()
-    #
-    # for BigBall in Big_B_Array:
-    #     BigBall.draw()
-    #
-    # for SmallBall in Small_B_Array:
-    #     SmallBall.draw()
+    for boy in team:
+        boy.draw()
+
+    for BigBall in Big_B_Array:
+        BigBall.draw()
+
+    for SmallBall in Small_B_Array:
+        SmallBall.draw()
 
     update_canvas()
 
