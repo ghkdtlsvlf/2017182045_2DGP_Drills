@@ -29,31 +29,21 @@ def handle_events():
             if (event.type, event.key) == (SDL_KEYDOWN, SDLK_ESCAPE):
                 game_framework.quit()
             elif (event.type, event.key) == (SDL_KEYDOWN, SDLK_p):
-                game_framework.change_state(main_state)
+                game_framework.pop_state()
 
     pass
 
 
 def draw():
     clear_canvas()
-    global blink_time
-    if blink_time:
-        image.draw(400, 300)
-    main_state.boy.draw()
-    main_state.grass.draw()
+
+    image.draw(400, 300)
+
     update_canvas()
     pass
 
 
 def update():
-    global blink_time
-    if blink_time:
-        delay(0.5)
-        blink_time = False
-    else:
-        delay(0.5)
-        blink_time = True
-
     pass
 
 
