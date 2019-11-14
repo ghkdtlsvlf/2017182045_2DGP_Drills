@@ -37,6 +37,7 @@ class IdleState:
     @staticmethod
     def enter(boy, event):
         boy.go_left()
+        pass
 
     @staticmethod
     def exit(boy, event):
@@ -52,6 +53,8 @@ class IdleState:
             boy.go_left()
         if boy.x < 100:
             boy.go_right()
+
+            pass
 
     @staticmethod
     def draw(boy):
@@ -70,84 +73,6 @@ class IdleState:
                 boy.image_left.clip_draw(805 - int(boy.frame - 5) * 200, 200, 195, 190, boy.x, boy.y)
             elif boy.frame < 14:
                 boy.image_left.clip_draw(805 - (int(boy.frame - 10)) * 200, 000, 195, 190, boy.x, boy.y)
-
-
-class RunState:
-
-    @staticmethod
-    def enter(boy, event):
-        if event == RIGHT_DOWN:
-            boy.velocity += RUN_SPEED_PPS
-        elif event == LEFT_DOWN:
-            boy.velocity -= RUN_SPEED_PPS
-        elif event == RIGHT_UP:
-            boy.velocity -= RUN_SPEED_PPS
-        elif event == LEFT_UP:
-            boy.velocity += RUN_SPEED_PPS
-        boy.dir = clamp(-1, boy.velocity, 1)
-
-        pass
-
-    @staticmethod
-    def exit(boy, event):
-        if event == SPACE:
-            boy.fire_ball()
-
-    @staticmethod
-    def do(boy):
-        boy.frame = (boy.frame + FRAMES_PER_ACTION * ACTION_PER_TIME * game_framework.frame_time) % 14
-        boy.x += boy.velocity * game_framework.frame_time
-        boy.x = clamp(25, boy.x, 1600 - 25)
-
-    @staticmethod
-    def draw(boy):
-        if boy.dir == 1:
-            if boy.frame < 4:
-                boy.image.clip_draw(int(boy.frame) * 200, 400, 195, 195, boy.x, boy.y)
-            elif boy.frame < 9:
-                boy.image.clip_draw(int(boy.frame - 5) * 200, 200, 195, 195, boy.x, boy.y)
-            elif boy.frame < 15:
-                boy.image.clip_draw(int(boy.frame - 10) * 200, 000, 195, 195, boy.x, boy.y)
-
-        else:
-            if boy.frame < 4:
-                boy.image_left.clip_draw(805 - int(boy.frame) * 200, 400, 195, 195, boy.x, boy.y)
-            elif boy.frame < 9:
-                boy.image_left.clip_draw(805 - int(boy.frame - 5) * 200, 200, 195, 195, boy.x, boy.y)
-            elif boy.frame < 15:
-                boy.image_left.clip_draw(805 - int(boy.frame - 10) * 200, 000, 195, 195, boy.x, boy.y)
-
-
-class SleepState:
-
-    @staticmethod
-    def enter(boy, event):
-        boy.frame = 0
-
-    @staticmethod
-    def exit(boy, event):
-        pass
-
-    @staticmethod
-    def do(boy):
-        boy.frame = (boy.frame + FRAMES_PER_ACTION * ACTION_PER_TIME * game_framework.frame_time) % 8
-
-    @staticmethod
-    def draw(boy):
-        if boy.dir == 1:
-            boy.image.clip_composite_draw(int(boy.frame) * 100, 300, 100, 100, 3.141592 / 2, '', boy.x - 25, boy.y - 25,
-                                          100, 100)
-        else:
-            boy.image.clip_composite_draw(int(boy.frame) * 100, 200, 100, 100, -3.141592 / 2, '', boy.x + 25,
-                                          boy.y - 25, 100, 100)
-
-
-next_state_table = {
-    IdleState: {RIGHT_UP: RunState, LEFT_UP: RunState, RIGHT_DOWN: RunState, LEFT_DOWN: RunState,
-                SLEEP_TIMER: SleepState, SPACE: IdleState},
-    RunState: {RIGHT_UP: IdleState, LEFT_UP: IdleState, LEFT_DOWN: IdleState, RIGHT_DOWN: IdleState, SPACE: RunState},
-    SleepState: {LEFT_DOWN: RunState, RIGHT_DOWN: RunState, LEFT_UP: RunState, RIGHT_UP: RunState, SPACE: IdleState}
-}
 
 
 class Boy:
@@ -177,7 +102,6 @@ class Boy:
         if len(self.event_que) > 0:
             event = self.event_que.pop()
             self.cur_state.exit(self, event)
-            self.cur_state = next_state_table[self.cur_state][event]
             self.cur_state.enter(self, event)
 
     def draw(self):
